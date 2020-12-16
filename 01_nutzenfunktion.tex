@@ -1,0 +1,52 @@
+\section{Die Nutzenfunktion}%
+\label{sec:die_nutzenfunktion}
+
+Eigenschaften der Konsummenge (\emph{consumption set}) $X$:
+\begin{enumerate}
+  \item $X \subseteq \RealNumbers^n_+$
+  \item $X$ ist abgeschlossen ($\overline{X}$ ist offen)
+  \item $X$ ist konvex
+  \item $0 \in X$
+\end{enumerate}
+
+Es existiert die binäre Relation der Konsumentenpräferenz $\atleastasgood$ mit
+$x_1 \atleastasgood x_2 \ \Leftrightarrow \ x_1$ ist mindestens genauso gut wie $x_2$.
+
+\begin{axiom}[Vollständigkeit]
+  \label{axiom:vollstaendigkeit}
+  Für alle $x^1, x^2 \in X$ gilt entweder
+  $x^1 \atleastasgood x^2$ oder $x^2 \atleastasgood x^1$.
+\end{axiom}
+
+\begin{axiom}[Transitivität]
+  \label{axiom:transitivitaet}
+  Für alle $x^1, x^2$ und $x^3 \in X$ gilt:
+  wenn $x^1 \atleastasgood x^2$ und $x^2 \atleastasgood x^3$,
+  dann gilt $x^1 \atleastasgood x^3$.
+\end{axiom}
+
+\begin{definition}[Präferenzrelation]
+  Die binäre Relation $\atleastasgood$ auf der Konsummenge $X$ ist eine
+  \emph{Präferenzrelation}, wenn es die Axiome~\ref{axiom:vollstaendigkeit}
+  und~\ref{axiom:transitivitaet} erfüllt.
+\end{definition}
+
+\begin{definition}[strenge Präferenzrelation]
+  Die binäre Relation $\strictlypreferredto$ auf der Konsummenge $X$ ist definiert als
+  \begin{align*}
+    x^1 \strictlypreferredto x^2
+    \ \Leftrightarrow \
+    x^1 \atleastasgood x^2 \text{ und } x^2 \notatleastasgood x^1
+  \end{align*}
+\end{definition}
+
+
+Nutzen und Erwartungsnutzen
+
+Siehe:
+\begin{itemize}
+  \item \href{https://de.wikipedia.org/wiki/Grenznutzen}{Grenznutzen}
+  \item \href{https://de.wikipedia.org/wiki/Grenzrate_der_Substitution}{Grenzrate der
+    Substitution}
+\end{itemize}
+

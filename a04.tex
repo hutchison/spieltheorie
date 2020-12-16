@@ -1,0 +1,49 @@
+\subsection{Serie 4}%
+\label{sub:serie_4}
+
+\paragraph{Aufgabe 1: Bertrand Duopol}%
+\label{par:aufgabe_4_1}
+
+Betrachten Sie 2 Unternehmen, die ein homogenes Gut zu identischen Stückkosten $c$
+produzieren können.
+Beide Unternehmen stehen im Preiswettbewerb miteinander, d.\,h. Unternehmen $i \in \{1,
+2\}$ wählen gleichzeitig Preis $p_i \in \RealNumbers_+$, um ihren Gewinn zu maximieren.
+Alle Konsumenten kaufen beim Anbieter mit dem niedrigsten Preis, der die gesamte Nachfrage
+$q(p_i, p_j)$ zu diesem Preis bedienen muss.
+Bei gleichen Preisen teilen sich die Konsumenten $50:50$ auf.
+Die individuelle Nachfrage des Unternehmens $i \in \{1, 2\}$ ist also gegeben durch:
+\begin{align*}
+  q_i(p_i, p_j) =
+  \begin{cases}
+    q(p_i, p_j) & \text{wenn } p_i < p_j\\
+    \frac{1}{2} q(p_i, p_j) & \text{wenn } p_i = p_j\\
+    0 & \text{wenn } p_i > p_j
+  \end{cases}
+\end{align*}
+Die Gewinnfunktion von Unternehmen $i \in \{1, 2\}$ ist dann:
+\begin{align*}
+  \pi_i(p_i, p_j) =
+  \begin{cases}
+    (p_i - c)q(p_i, p_j) & \text{wenn } p_i < p_j\\
+    (p_i - c)\frac{1}{2} q(p_i, p_j) & \text{wenn } p_i = p_j\\
+    0 & \text{wenn } p_i > p_j
+  \end{cases}
+\end{align*}
+Bestimmen Sie das eindeutige Nash-GG in reinen Strategien.
+
+\paragraph{Aufgabe 2: Cournot Duopol}%
+\label{par:aufgabe_2_cournot_duopol}
+
+Betrachten Sie erneut eine Situation mit 2 Unternehmen, die ein homogenes Gut zu
+identischen und konstanten Grenzkosten produzieren $c_1 = c_2 = c$.
+Es entstehen keine Fixkosten.
+Die Unternehmen wählen nun simultan ihre individuellen Produktionsmengen $x_1, x_2 \in
+\RealNumbers_+$.
+Der Marktpreis ergibt sich dann aus dem aggregierten Angebot $x = x_1 + x_2$ und der
+inversen Nachfragefunktion:
+\begin{align*}
+  P(x) & = \begin{cases}
+    a - b \cdot x & \text{wenn } 0 \leq x < \frac{a}{b}\\
+    0 & \text{wenn } x \geq \frac{a}{b}\\
+  \end{cases}
+\end{align*}

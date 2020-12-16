@@ -1,0 +1,342 @@
+\section{Statische Spiele mit vollständiger Information}%
+\label{sec:statische_spiele_mit_vollstandiger_information}
+
+\begin{definition}[Rationalität]
+  Rational zu handeln bedeutet, dass ein Individuum aus einer Menge von Wahlmöglichkeiten
+  eine Aktion $a$ so wählt, dass $a$ mindestens genauso gut wie jede andere Aktion $b$
+  ist.
+  Die Güte der Aktion ist durch die Nutzenfunktion bestimmt.
+\end{definition}
+
+\subsection{Strategische Spiele}%
+\label{sub:strategische_spiele}
+
+Ein Strategienprofil ist eine Funktion, die den Spielern bestimmte Aktionen zuweist.
+Bei den Spielern $\{1,2,3\}$ und den Aktionsmengen
+$A_1 = \{T, B\}, A_2 = \{L, R\}, A_3 = \{I, O\}$
+ist bspw. $(a_1, a_2, a_3) = (T, L, O)$ ein Strategienprofil.
+Eine besondere Notation ist die Variante $(b_i, a_{-i})$, welche bedeutet, dass Spieler
+$i$ die Aktion $b_i$ und \emph{nicht} $a_i$ wählt.
+Wenn $b_2 = R$ ist, dann ist $(b_2, a_{-2}) = (T, R, O)$.
+Alles bleibt gleich, nur Spieler $2$ ändert die Aktion.
+
+\begin{definition}[Strategisches Spiel mit ordinaler Präferenz]
+  Ein strategisches Spiel (mit ordinaler Präferenz) besteht aus:
+  \begin{itemize}
+    \item einer Menge von Spielern $P = \{1, \ldots, n\}$
+    \item für jeden Spieler: eine Menge von Aktionen $S_i$
+    \item für jeden Spieler: Präferenzen über der Menge der Aktionsprofile
+      $u_i: S_1 \times \ldots \times S_n \to \RealNumbers$
+  \end{itemize}
+\end{definition}
+
+\subsection{Gefangendilemma}%
+\label{sub:gefangendilemma}
+
+Zwei Verdächtige werden verhaftet und angeklagt.
+Die Polizei hat nicht genügend Beweise um beide zu verurteilen, es sei denn
+einer von beiden gesteht.
+Die Verdächtigen werden in verschiedene Zellen gesteckt und ihnen werden die
+Konsequenzen der möglichen Aktionen erklärt.
+Jeder kann entweder \emph{schweigen} (kooperieren) oder \emph{gestehen}
+(defektieren, gegen den anderen aussagen) und jeder Gefangene möchte möglichst
+wenige Jahre im Gefängnis verbringen.
+Wenn beide schweigen, dann bekommt jeder 1 Jahr wegen kleinerer Delikte.
+Wenn einer schweigt und der andere gesteht, dann wird der Geständige
+freigelassen und der andere bekommt die Höchststrafe von 9 Jahren Haft.
+Wenn beide gestehen bekommen beide durch die Zusammenarbeit mit der Polizei (das
+Geständnis) nicht die Höchststrafe, sondern jeweils nur 6 Jahre ins Gefängnis.
+
+Die Auszahlungsmatrix (Bimatrix) sieht wie folgt aus:
+\begin{center}
+  \begin{tabular}{cccc}
+    & & \multicolumn{2}{c}{B}\\
+    & & schweigt & gesteht\\
+    \multirow{2}{*}{A} &
+    schweigt & $-1, -1$ & $-9, \phantom{-}0$\\
+    & gesteht & $\phantom{-}0, -9$ & $-6, -6$\\
+  \end{tabular}
+\end{center}
+
+Die Ergebnisse haben besondere Namen:
+
+\begin{table}[h]
+  \centering
+  \caption{Mögliche Erträge im Gefangenendilemma}
+  \label{tab:moegliche_ertraege_im_gefangenendilemma}
+  \begin{tabular}{ccr}
+    \toprule
+    \makecell{$T$\\ temptation\\ (Versuchung)} &
+    \makecell{Verpfeifen, wenn der andere schweigt\\[1ex] (Defektion bei Kooperation)} &
+    $0$\\
+    \midrule
+    \makecell{$R$\\ reward\\ (Belohnung)} &
+    \makecell{Schweigen, wenn der andere schweigt\\[1ex] (Kooperation bei Kooperation)} &
+    $-1$\\
+    \midrule
+    \makecell{$P$\\ punishment\\ (Bestrafung)} &
+    \makecell{Verpfeifen, wenn der andere verpfeift\\[1ex] (Defektion bei Defektion)} &
+    $-6$\\
+    \midrule
+    \makecell{$S$\\ sucker’s payoff\\ (Lohn des Gutgläubigen)} &
+    \makecell{Schweigen, wenn der andere verpfeift\\[1ex] (Kooperation bei Defektion)} &
+    $-9$\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Allgemein hat ein Gefangenendilemma folgende Struktur:
+\begin{center}
+  \begin{tabular}{cccc}
+    & & \multicolumn{2}{c}{B}\\
+    & & kooperiert & defektiert\\
+    \multirow{2}{*}{A} &
+    kooperiert & $R, R$ & $S, T$\\
+    & defektiert & $T, S$ & $P, P$\\
+  \end{tabular}
+\end{center}
+Dabei müssen diese Ungleichungen gelten:
+\begin{align*}
+  T > R > P > S \text{ und } 2R > T + S
+\end{align*}
+Die erste geht aus den einzelnen Präferenzen hervor und die zweite sorgt dafür, dass die
+Verdächtigen sich bei Wiederholung nicht gegenseitig ausbeuten können.
+Bei Wiederholung könnten sie abwechselnd kooperieren und defektieren und würden auf Dauer
+mehr Nutzen haben.
+Diese Möglichkeit muss ausgeschlossen werden.
+
+\subsection{Bach oder Strawinski}%
+\label{sub:bach_oder_strawinski}
+
+Beim Gefangenendilemma ist das Hauptproblem, ob beide Spieler kooperieren.
+Im folgenden Spiel sind sich beide einig, dass es besser ist zu kooperieren, aber sie sind
+sich nicht über die Aktion einig.
+
+Zwei Menschen wollen zusammen den Abend verbringen.
+Zwei Konzerte stehen zur Verfügung: Bach oder Strawinski.
+Eine Person präferiert Bach, die andere Strawinski.
+Wenn sie auf verschiedene Konzerte gehen, sind sie beide gleich unglücklich, weil sie den
+Abend nicht mit der anderen Person verbringen.
+\begin{center}
+  \begin{tabular}{cccc}
+    & & \multicolumn{2}{c}{B}\\
+    & & Bach & Strawinski\\
+    \multirow{2}{*}{A} &
+    Bach & $2, 1$ & $0, 0$\\
+    & Strawinski & $0, 0$ & $1, 2$\\
+  \end{tabular}
+\end{center}
+
+\subsection{Matching Pennies}%
+\label{sub:matching_pennies}
+
+Zwei Spieler wählen gleichzeitig ob sie Kopf oder Zahl einer Münze zeigen.
+Wenn die Münzen die gleiche Seite zeigen, dann zahlt Spieler 2 einen Euro an Spieler 1.
+Wenn sie verschiedene Seiten zeigen, dann zahlt Spieler 1 einen Euro an Spieler 2.
+
+\begin{center}
+  \begin{tabular}{cccc}
+    & & \multicolumn{2}{c}{Spieler 2}\\
+    & & Kopf & Zahl\\
+    \multirow{2}{*}{Spieler 1} &
+      Kopf & $\phantom{-}1, -1$ & $-1, \phantom{-}1$\\
+    & Zahl & $-1, \phantom{-}1$ & $\phantom{-}1, -1$\\
+  \end{tabular}
+\end{center}
+
+\subsection{Hirschjang (Stag hunt)}%
+\label{sub:hirschjang_stag_hunt}
+
+Eine Jägerin einer Gruppe hat zwei Optionen: entweder konzentriert sie sich auf die
+Verfolgung eines Hirsches oder sie schießt vielleicht einen Hasen.
+Wenn alle Jäger den Hirsch verfolgen, dann fangen sie ihn und teilen ihn gleich auf.
+Wenn ein Jäger sich auf den Hasen konzentriert, dann entwischt der Hirsch und der Hase
+gehört nur dem abtrünnigen Jäger.
+Jeder Jäger präferiert einen Teil des Hirsches gegenüber einem Hasen.
+
+Das Spiel besteht demnach aus den folgenden Elementen:
+\begin{description}
+  \item[Spieler] Die Jäger.
+  \item[Aktionen] jeder Jäger hat die Aktionen $\{\emph{Hirsch}, \emph{Hase}\}$.
+  \item[Präferenzen] Für jeden Jäger ist das Aktionsprofil $(\emph{Hirsch}, \ldots,
+    \emph{Hirsch})$, also alle wählen Hirsch, am wertvollsten.
+    Danach kommt für jeden Jäger das Profil, in dem er \emph{Hase} wählt, gefolgt von
+    allen Profilen, in denen er \emph{Hirsch} wählt und irgendein anderer \emph{Hase}
+    wählt (sodass er leer ausgeht).
+\end{description}
+Für zwei Spieler sieht das Spiel wie folgt aus:
+\begin{center}
+  \begin{tabular}{cccc}
+    & & \multicolumn{2}{c}{Spieler 2}\\
+    & & Hirsch & Hase\\
+    \multirow{2}{*}{Spieler 1} &
+      Hirsch & $2, 2$ & $0,1$\\
+    & Hase   & $1, 0$ & $1,1$\\
+  \end{tabular}
+\end{center}
+
+\subsection{Nash-Gleichgewicht}%
+\label{sub:nash_gleichgewicht}
+
+Ein Gleichgewicht ist eine stabile Situation, in der kein Spieler einen Anreiz hat, sein
+Verhalten zu verändern.
+
+Ein \emph{Nash-Gleichgewicht} ist ein Aktionsprofil $a^* = (a^*_1, \ldots, a^*_n)$,
+bei dem kein Spieler $i$ eine bessere Aktion als $a^*_i$ wählen kann,
+sofern die anderen Spieler $j$ an $a^*_j$ festhalten.
+
+\begin{definition}[Nash-Gleichgewicht eines strategischen Spiels mit ordinaler Präferenz]
+  Das Aktionsprofil $a^*$ ist genau dann ein Nash-Gleichgewicht,
+  wenn es für jeden Spieler $i$ und für jede Aktion $a_i$ von Spieler $i$
+  bezüglich der Präferenzen von $i$
+  mindestens genauso gut wie das Aktionsprofil $(a_i, a^*_{-i})$ ist,
+  bei dem Spieler $i$ die Aktion $a_i$ statt $a^*_{-i}$ wählt,
+  während alle anderen Spieler $j$ jeweils $a^*_j$ wählen.
+
+  Äquivalent gilt für jeden Spieler $i$
+  \begin{align*}
+    u_i(a^*) \geq u_i(a_i, a^*_{-i}) \quad \text{für jede Aktion $a_i$ von Spieler $i$.}
+  \end{align*}
+\end{definition}
+
+\subsection{Beste-Antwort-Funktionen}%
+\label{sub:beste_antwort_funktionen}
+
+\begin{definition}[Beste-Antwort-Funktion]
+  Die Menge der besten Aktionen von Spieler $i$ gegenüber den Aktionen $a_{-i}$ der
+  anderen Spieler wird mit $B_i(a_{-i})$ notiert.
+  Genau definiert wird sie als:
+  \begin{align*}
+    B_i(a_{-i}) & = \left\{
+      a_i \in A_i :
+      u_i(a_i, a_{-i}) \geq u_i(a'_i, a_{-i})
+      \text{ für alle $a'_i \in A_i$}
+    \right\}
+  \end{align*}
+  Jede Aktion in $B_i(a_{-i})$ ist mindestens so gut für Spieler $i$ wie jede andere
+  Aktion von Spieler $i$, wenn die Aktionen der anderen Spieler $a_{-i}$ sind.
+
+  Wenn jeder andere Spieler an der Aktion $a_{-i}$ festhält, dann kann Spieler $i$ nicht
+  mehr erreichen, als durch eine Aktion aus $B_i(a_{-i})$.
+\end{definition}
+
+Im Spiel \emph{Bach oder Strawinski} ist
+$B_1(\emph{Bach}) = \{ \emph{Bach} \}$ und
+$B_1(\emph{Strawinski}) = \{ \emph{Strawinski} \}$.
+
+Mit der Besten-Antwort-Funktion (auch Reaktionsfunktion genannt) lässt sich auch das
+Nash-Gleichgewicht definieren:
+das Aktionsprofil $a^*$ ist genau dann ein Nash-Gleichgewicht eines strategischen Spiels
+mit ordinaler Präferenz, wenn jede Aktion der Spieler eine beste Antwort auf die Aktionen
+der anderen Spieler ist:
+\begin{align}
+  \label{eq:beste_antwort_nash_gg}
+  a^*_i \in B_i(a^*_{-i}) \text{ für alle Spieler $i$}
+\end{align}
+Wenn die Menge der besten Antworten aus genau einem Element besteht
+($B_i(a_{-i}) = \{ b_i(a_{-i}) \}$),
+dann wird dieses Element als $b_i(a_{-i})$ notiert.
+Dann gilt:
+\begin{align*}
+  a^*_i = b_i(a^*_{-i}) \text{ für alle Spieler $i$}
+\end{align*}
+
+Mit der Beste-Antwort-Funktion lässt sich das Nash-Gleichgewicht finden.
+Finde dazu die besten Antworten aller Spieler und finde dann die Aktionsprofile,
+die~\ref{eq:beste_antwort_nash_gg} erfüllen.
+
+\paragraph{Dominierte Aktionen}%
+\label{par:dominierte_aktionen}
+
+\begin{definition}[Strikte Domination]
+  Eine Aktion $\hat{a}_i$ von Spieler $i$ wird \emph{strikt dominiert},
+  wenn es eine andere Aktion $\tilde{a}_i \in A_i$ gibt,
+  so dass $\tilde{a}_i$ zu einer strikt größeren Auszahlung führt als $\hat{a}_i$
+  — unabhängig davon, welche Aktion von den Gegenspielern gewählt werden:
+  \begin{align*}
+    u_i(\hat{a}_i, a_{-i}) < u_i(\tilde{a}_i, a_{-i})
+    \quad
+    \forall a_{-i} \text{ der anderen Spieler}
+  \end{align*}
+\end{definition}
+
+Im Gefangenendilemma wird \emph{Kooperieren} strikt von \emph{Defektieren} dominiert, weil
+$T > R$ und $P > S$ gilt.
+
+Es gilt Rationalität bei strikter Dominanz: ein rationaler Spieler wird niemals eine
+strikt dominierte Strategie spielen.
+
+\begin{definition}[Schwache Dominanz]
+  Eine Aktion $\hat{a}_i$ von Spieler $i$ wird \emph{schwach dominiert}, wenn es eine
+  andere Aktion $\tilde{a}_i \in A_i$ gibt, so dass gilt:
+  \begin{align*}
+    u_i(\hat{a}_i, a_{-i}) \leq u_i(\tilde{a}_i, a_{-i})
+    \quad \forall a_{-i} \text{ der anderen Spieler}
+  \end{align*}
+  und
+  \begin{align*}
+    u_i(\hat{a}_i, a_{-i}) < u_i(\tilde{a}_i, a_{-i})
+    \quad \text{für mindestens ein $a_{-i}$ der anderen Spieler}
+  \end{align*}
+\end{definition}
+
+Ein rationaler Spieler kann durchaus eine schwach dominierte Strategie spielen.
+
+\begin{definition}[dominante Strategie]
+  Eine Strategie $s^*_i$ von Spieler $i$ ist eine \emph{strikt dominante} Strategie, falls
+  sie alle anderen Strategien von Spieler $i$ strikt dominiert:
+  \begin{align*}
+    u_i(s^*_i, s) > u_i(s_i, s) \qquad
+    \forall s_i \in S_i \setminus \{s^*_i\},
+    \forall s \in S_{j \neq i}
+  \end{align*}
+\end{definition}
+
+Wenn eine strikt dominante Strategie $s^*_i$ existiert, wird sie ein rationaler Spieler
+immer wählen.
+
+\begin{definition}[Iterative Eliminierung strikt dominierter Strategien]
+  Wiederhole solange, bis sich nichts mehr ändert: finde eine dominante Strategie und
+  eliminiere sie.
+\end{definition}
+
+Beispiel: 2 Spieler, 4 Strategien
+
+\begin{center}
+  \begin{tabular}{cccccc}
+    & & \multicolumn{4}{c}{B}\\
+    & & $b_1$ & $b_2$ & $b_3$ & $b_4$\\
+    \multirow{4}{*}{A} & $a_1$ & $0,7$ & $2,5$ & $7,0$ & $0,1$\\
+    & $a_2$ & $5,2$ & $3,3$ & $5,2$ & $0,1$\\
+    & $a_3$ & $7,0$ & $2,5$ & $0,7$ & $0,1$\\
+    & $a_4$ & $0,0$ & $0,-2$ & $0,0$ & $10,-3$\\
+  \end{tabular}
+\end{center}
+
+Egal welche Strategie Spieler A wählt, für B ist $b_2$ immer besser als $b_4$, also wird
+$b_4$ eliminiert:
+
+\begin{center}
+  \begin{tabular}{ccccc}
+    & & \multicolumn{3}{c}{B}\\
+    & & $b_1$ & $b_2$ & $b_3$\\
+    \multirow{4}{*}{A} & $a_1$ & $0,7$ & $2,5$ & $7,0$\\
+    & $a_2$ & $5,2$ & $3,3$ & $5,2$\\
+    & $a_3$ & $7,0$ & $2,5$ & $0,7$\\
+    & $a_4$ & $0,0$ & $0,-2$ & $0,0$\\
+  \end{tabular}
+\end{center}
+
+Jetzt ist es egal, welche Strategie Spieler B wählt, für A ist $a_2$ immer besser als
+$a_4$ und damit wird $a_4$ eliminiert:
+
+\begin{center}
+  \begin{tabular}{ccccc}
+    & & \multicolumn{3}{c}{B}\\
+    & & $b_1$ & $b_2$ & $b_3$\\
+    \multirow{4}{*}{A} & $a_1$ & $0,7$ & $2,5$ & $7,0$\\
+    & $a_2$ & $5,2$ & $3,3$ & $5,2$\\
+    & $a_3$ & $7,0$ & $2,5$ & $0,7$\\
+  \end{tabular}
+\end{center}
+

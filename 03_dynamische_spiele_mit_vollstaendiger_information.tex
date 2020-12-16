@@ -1,0 +1,32 @@
+\section{Dynamische Spiele mit vollständiger Information}%
+\label{sec:dynamische_spiele_mit_vollstandiger_information}
+
+\begin{definition}[Extensives Spiel mit perfekter Information]
+  Ein extensives Spiel mit perfekter Information besteht aus
+  \begin{itemize}
+    \item einer Menge von \emph{Spielern}
+    \item einer Menge von Folgen (\emph{terminalen Geschichten}) mit der Eigenschaft, dass
+      keine Folge eine echte Teilgeschichte einer anderen Folge ist
+    \item einer Funktion (der \emph{Spielerfunktion}), die einem Spieler jede echte
+      Teilgeschichte irgendeiner terminalen Geschichte zuweist
+    \item für jeden Spieler: Präferenzen über der Menge der terminalen Geschichten
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[Nash-Gleichgewicht eines extensiven Spiels mit perfekter Information]
+  Das Strategieprofil $s^*$ in einem extensiven Spiel mit perfekter Information ist genau
+  dann ein Nash-Gleichgewicht, wenn für jeden Spieler $i$ und jede Strategie $r_i$ von
+  Spieler $i$ die von $s^*$ erzeugte terminale Geschichte $O(s^*)$ (abhängig von den
+  Präferenzen von Spieler $i$) mindestens genauso gut ist, wie die von dem Strategieprofil
+  $(r_i, s^*_{-i})$ erzeugte terminale Geschichte $O(r_i, s^*_{-i})$, in der $r_i$ von
+  Spieler $i$ gewählt wurde, während jeder andere Spieler $j$ das Strategieprofil $s^*_j$
+  gewählt hat.
+
+  Äquivalent gilt für jeden Spieler $i$:
+  \begin{align*}
+    u_i(O(s^*)) \geq u_i(O(r_i, s^*_{-i})) \quad
+      \text{für jede Strategie $r_i$ von Spieler $i$}
+  \end{align*}
+  wobei $u_i$ die Nutzenfunktion ist, die die Präferenzen von Spieler $i$ repräsentiert
+  und $O$ die Auszahlungsfunktion des Spiels ist.
+\end{definition}

@@ -2,7 +2,230 @@
 \label{sub:serie_5}
 
 \paragraph{Aufgabe 1}%
-\label{par:aufgabe_1}
+\label{par:serie_5_aufgabe_1}
 
 Betrachten Sie folgendes Spiel in strategischer Form:
+\begin{center}
+  \begin{tabular}{ccccc}
+    & & \multicolumn{3}{c}{Spieler 2}\\
+    & & $L$ & $C$ & $R$\\
+    \cmidrule{3-5}
+    \multirow{3}{*}{Spieler 1}
+    & $T$ & $4,2$ & $4,3$ & $1,1$\\
+    \cmidrule{3-5}
+    & $M$ & $5,3$ & $6,4$ & $2,4$\\
+    \cmidrule{3-5}
+    & $B$ & $6,4$ & $4,2$ & $2,5$\\
+    \cmidrule{3-5}
+  \end{tabular}
+\end{center}
 
+Identifizieren Sie die Strategien, die IESDS überstehen, und bestimmen Sie alle
+Nash-Gleichgewichte des dargestellten Spiels.
+
+\subparagraph{Lösung}%
+
+$T$ wird strikt von $M$ dominiert und daher eliminiert.
+\begin{center}
+  \begin{tabular}{ccccc}
+    & & \multicolumn{3}{c}{Spieler 2}\\
+    & & $L$ & $C$ & $R$\\
+    \cmidrule{3-5}
+    \multirow{2}{*}{Spieler 1}
+    & $M$ & $5,3$ & $6,4$ & $2,4$\\
+    \cmidrule{3-5}
+    & $B$ & $6,4$ & $4,2$ & $2,5$\\
+    \cmidrule{3-5}
+  \end{tabular}
+\end{center}
+$L$ wird strikt von $R$ dominiert und eliminiert.
+\begin{center}
+  \begin{tabular}{cccc}
+    & & \multicolumn{2}{c}{Spieler 2}\\
+    & & $C$ & $R$\\
+    \cmidrule{3-4}
+    \multirow{2}{*}{Spieler 1}
+    & $M$ & $\underline{6},\underline{4}$ & $\underline{2},\underline{4}$\\
+    \cmidrule{3-4}
+    & $B$ & $4,2$ & $\underline{2},\underline{5}$\\
+    \cmidrule{3-4}
+  \end{tabular}
+\end{center}
+In reinen Strategien erhalten wir folgendes Nash-Gleichgewicht:
+$\text{NGG} = \{(M,C), (M,R), (B,R)\}$.
+
+Betrachten wir nun gemischte Strategien.
+Spieler 1 spielt $M$ mit der Wahrscheinlichkeit $p$
+und $B$ mit der Wahrscheinlichkeit $1-p$.
+Spieler 2 spielt $C$ mit der Wahrscheinlichkeit $q$
+und $R$ mit der Wahrscheinlichkeit $1-q$.
+Der Erwartungsnutzen der Spieler hängt von Wahrscheinlichkeit des Gegenspielers ab eine
+bestimmte Strategie zu spielen.
+Für Spieler 1 sind die einzelnen Erwartungsnutzen:
+\begin{align*}
+  EU_1(M) & = 6q + 2(1-q)\\
+  EU_1(B) & = 4q + 2(1-q)
+\end{align*}
+Spieler 2 muss $q$ so wählen, dass Spieler 1 indifferent zwischen $M$ und $B$ ist und
+damit keinen Vorteil aus dem Verhalten von Spieler 2 ziehen kann,
+d.\,h. es muss $EU_1(M) = EU_1(B)$ gelten.
+\begin{align*}
+  EU_1(M) = EU_1(B) \iff 6q + 2(1-q) = 4q + 2(1-q)  \iff q = 0
+\end{align*}
+Analog gilt für Spieler 2:
+\begin{align*}
+  EU_2(C) & = 4p + 2(1-p)\\
+  EU_2(R) & = 4p + 5(1-p)\\
+  EU_2(C) & = EU_2(R) \iff 4p + 2(1-p) = 4p + 5(1-p) \iff p = 1
+\end{align*}
+Damit ist $\text{NGG} = \{(M,R)\}$ das einzige Nash-Gleichgewicht in gemischten
+Strategien.
+Dies wird auch dadurch begründet, dass $B$ von $M$ schwach dominiert wird und $C$ von $R$
+ebenso schwach dominiert wird.
+
+\paragraph{Aufgabe 2}%
+\label{par:serie_5_aufgabe_2}
+
+Betrachten Sie das folgende \emph{Gefangenendilemma} und stellen Sie die
+Reaktionsfunktionen der Spieler graphisch dar.
+\begin{center}
+  \begin{tabular}{ccc}
+    & $c$ & $d$\\
+    \cmidrule{2-3}
+    $c$ & $3,\phantom{-}3$ & $-1,4$\\
+    \cmidrule{2-3}
+    $d$ & $4,-1$ & $\phantom{-}0,0$\\
+    \cmidrule{2-3}
+  \end{tabular}
+\end{center}
+
+\subparagraph{Lösung}%
+
+Sei $p$ die Wahrscheinlichkeit, dass Spieler 1 $d$ spielt,
+und $q$ die Wahrscheinlichkeit, dass Spieler 2 $d$ spielt.
+
+\begin{center}
+  \begin{tikzpicture}
+    \draw[->] (0,0) -- (6.5,0);
+    \draw (6,-0.1) -- (6,0.1);
+    \draw[->] (0,0) -- (0,6.5);
+    \draw (-0.1,6) -- (0.1,6);
+
+    \draw (0,0) [below] node {$0$};
+    \draw (6,0) [below] node {$1$};
+    \draw (6.5,0) [right] node {$p$};
+    \draw (0,0) [left] node {$0$};
+    \draw (0,6) [left] node {$1$};
+    \draw (0,6.5) [above] node {$q$};
+
+    \draw [very thick, red] (0,6) -- (6,6);
+    \draw [very thick, blue] (6,0) -- (6,6);
+    \fill (6,6) circle (2pt);
+  \end{tikzpicture}
+\end{center}
+Im Gefangenendilemma wird $c$ strikt dominiert, daher spielen beide Spieler immer $d$.
+
+\paragraph{Aufgabe 3}%
+\label{par:serie_5_aufgabe_3}
+
+Das im Folgenden dargestellte Spiel nennt sich \emph{Chicken}; es handelt sich um eine
+Variante des Spiels \emph{Hawk-Dove} aus der Vorlesung.
+Stellen Sie auch hier die Reaktionsfunktionen der Spieler graphisch dar und bestimmen Sie
+alle Nash-Gleichgewichte des Spiels.
+\begin{center}
+  \begin{tabular}{ccc}
+    & $h$ & $d$\\
+    \cmidrule{2-3}
+    $h$ & $2,2$ & $\phantom{-}0,\phantom{-}4$\\
+    \cmidrule{2-3}
+    $d$ & $4,0$ & $-1,-1$\\
+    \cmidrule{2-3}
+  \end{tabular}
+\end{center}
+
+\subparagraph{Lösung}%
+
+In reinen Strategien sind $(d,h)$ und $(h,d)$ Nash-Gleichgewichte.
+
+Sei $p$ die Wahrscheinlichkeit, dass Spieler 1 $h$ spielt,
+und $q$ die Wahrscheinlichkeit, dass Spieler 2 $h$ spielt.
+
+Für die Erwartungsnutzen der Spieler gilt:\\
+\begin{minipage}[t]{0.45\linewidth}
+  \centering
+  \begin{align*}
+    EU_1(h) & = 2q\\
+    EU_1(d) & = 4q-1(1-q)\\
+    EU_1(h) & > EU_1(d) \iff q < \frac{1}{3} \implies p = 1\\
+    EU_1(h) & = EU_1(d) \iff q = \frac{1}{3}\\
+    EU_1(h) & < EU_1(d) \iff q > \frac{1}{3} \implies p = 0
+  \end{align*}
+\end{minipage}
+\begin{minipage}[t]{0.45\linewidth}
+  \centering
+  \begin{align*}
+    EU_2(h) & = 2p\\
+    EU_2(d) & = 4p-1(1-p)\\
+    EU_2(h) & > EU_2(d) \iff p < \frac{1}{3} \implies q = 1\\
+    EU_2(h) & = EU_2(d) \iff p = \frac{1}{3}\\
+    EU_2(h) & < EU_2(d) \iff p > \frac{1}{3} \implies q = 0
+  \end{align*}
+\end{minipage}
+
+\begin{center}
+  \begin{tikzpicture}
+    \draw[->] (0,0) -- (6.5,0);
+    \draw (6,-0.1) -- (6,0.1);
+    \draw[->] (0,0) -- (0,6.5);
+    \draw (-0.1,6) -- (0.1,6);
+
+    \draw (0,0) [below] node {$0$};
+    \draw (6,0) [below] node {$1$};
+    \draw (6.5,0) [right] node {$p$};
+    \draw (0,0) [left] node {$0$};
+    \draw (0,6) [left] node {$1$};
+    \draw (0,6.5) [above] node {$q$};
+
+    \draw (-0.1,2) -- (0.1,2);
+    \draw (0,2) -- (0,2) [left] node {$\frac{1}{3}$};
+    \draw (2,-0.1) -- (2,0.1);
+    \draw (2,0) -- (2,0) [below] node {$\frac{1}{3}$};
+
+    \draw [very thick, blue]  (6,0) -- (6,2);
+    \draw [very thin, blue]   (6,2) -- (0,2);
+    \draw [very thick, blue]  (0,2) -- (0,6);
+
+    \draw [very thick, red]   (0,6) -- (2,6);
+    \draw [very thin, red]   (2,6) -- (2,0);
+    \draw [very thick, red]    (2,0) -- (6,0);
+
+    \fill (2,2) circle (2pt);
+    \fill (6,0) circle (2pt);
+    \fill (0,6) circle (2pt);
+  \end{tikzpicture}
+\end{center}
+In gemischten Strategien ist daher
+$\text{NGG} = \left\{(1,0), (\frac{1}{3}, \frac{1}{3}), (0,1)\right\}$.
+
+\paragraph{Aufgabe 4}%
+\label{par:serie_5_aufgabe_4}
+
+Betrachten Sie die folgenden Varianten des Cournot-Duopols aus der Vorlesung.
+In beiden Varianten ist die inverse Marktnachfragefunktion $P(q) = \max\{1-q, 0\}$.
+\begin{enumerate}
+  \item Die Firmen haben konstante aber unterschiedliche Stückkosten:
+    die Kostenfunktion von Firma 1 ist $C_1(q_1) = c_1 q_1$,
+    die Kostenfunktion von Firma 2 ist $C_2(q_2) = c_2 q_2$
+    mit $1 > c_1 > c_2 > 0$.
+    Bestimmen Sie die besten Antworten beider Firmen und die Nash-Gleichgewichte.
+  \item Die Firmen haben identische Kostenfunktionen,
+    die für $q_i > 0$ durch $C_i(q_i) = f+c q_i$ mit $f > 0$ und $c < 1$ gegeben sind.
+    Für $q_i = 0$ gilt $C_i(q_i) = 0$ (d.\,h. $f$ stellt quasi-fixe Kosten dar, die genau
+    dann anfallen, wenn die Firmat die Produktion aufnimmt).
+    Welche Bedingung an die Parameter $(c,f)$ muss erfüllt sein,
+    damit $(q_1^*, q_2^*) = (0,0)$ ein Nash-Gleichgewicht ist?
+    Für welche Werte der Parameter gibt es ein Nash-Gleichgewicht, in dem nur eine Firma
+    eine strikt positive Menge $(q_i^* > 0, q_{-i}^* = 0)$ wählt?
+    Welche Bedingung muss erfüllt sein, damit es ein Nash-Gleichgewicht gibt, in dem beide
+    Firmen strikt positive Mengen wählen?
+\end{enumerate}

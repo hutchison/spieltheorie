@@ -52,9 +52,12 @@ Die Auszahlungsmatrix (Bimatrix) sieht wie folgt aus:
   \begin{tabular}{cccc}
     & & \multicolumn{2}{c}{B}\\
     & & schweigt & gesteht\\
-    \multirow{2}{*}{A} &
-    schweigt & $-1, -1$ & $-9, \phantom{-}0$\\
-    & gesteht & $\phantom{-}0, -9$ & $-6, -6$\\
+    \cmidrule{3-4}
+    \multirow{2}{*}{A}
+      & schweigt & $-1, -1$ & $-9, \phantom{-}0$\\
+    \cmidrule{3-4}
+      & gesteht & $\phantom{-}0, -9$ & $-6, -6$\\
+    \cmidrule{3-4}
   \end{tabular}
 \end{center}
 
@@ -90,9 +93,12 @@ Allgemein hat ein Gefangenendilemma folgende Struktur:
   \begin{tabular}{cccc}
     & & \multicolumn{2}{c}{B}\\
     & & kooperiert & defektiert\\
-    \multirow{2}{*}{A} &
-    kooperiert & $R, R$ & $S, T$\\
-    & defektiert & $T, S$ & $P, P$\\
+    \cmidrule{3-4}
+    \multirow{2}{*}{A}
+      & kooperiert & $R, R$ & $S, T$\\
+    \cmidrule{3-4}
+      & defektiert & $T, S$ & $P, P$\\
+    \cmidrule{3-4}
   \end{tabular}
 \end{center}
 Dabei müssen diese Ungleichungen gelten:
@@ -121,9 +127,12 @@ Abend nicht mit der anderen Person verbringen.
   \begin{tabular}{cccc}
     & & \multicolumn{2}{c}{B}\\
     & & Bach & Strawinski\\
-    \multirow{2}{*}{A} &
-    Bach & $2, 1$ & $0, 0$\\
-    & Strawinski & $0, 0$ & $1, 2$\\
+    \cmidrule{3-4}
+    \multirow{2}{*}{A}
+      & Bach & $2, 1$ & $0, 0$\\
+    \cmidrule{3-4}
+      & Strawinski & $0, 0$ & $1, 2$\\
+    \cmidrule{3-4}
   \end{tabular}
 \end{center}
 
@@ -138,9 +147,12 @@ Wenn sie verschiedene Seiten zeigen, dann zahlt Spieler 1 einen Euro an Spieler 
   \begin{tabular}{cccc}
     & & \multicolumn{2}{c}{Spieler 2}\\
     & & Kopf & Zahl\\
-    \multirow{2}{*}{Spieler 1} &
-      Kopf & $\phantom{-}1, -1$ & $-1, \phantom{-}1$\\
-    & Zahl & $-1, \phantom{-}1$ & $\phantom{-}1, -1$\\
+    \cmidrule{3-4}
+    \multirow{2}{*}{Spieler 1}
+      & Kopf & $\phantom{-}1, -1$ & $-1, \phantom{-}1$\\
+    \cmidrule{3-4}
+      & Zahl & $-1, \phantom{-}1$ & $\phantom{-}1, -1$\\
+    \cmidrule{3-4}
   \end{tabular}
 \end{center}
 
@@ -169,9 +181,12 @@ Für zwei Spieler sieht das Spiel wie folgt aus:
   \begin{tabular}{cccc}
     & & \multicolumn{2}{c}{Spieler 2}\\
     & & Hirsch & Hase\\
-    \multirow{2}{*}{Spieler 1} &
-      Hirsch & $2, 2$ & $0,1$\\
-    & Hase   & $1, 0$ & $1,1$\\
+    \cmidrule{3-4}
+    \multirow{2}{*}{Spieler 1}
+      & Hirsch & $2, 2$ & $0,1$\\
+    \cmidrule{3-4}
+      & Hase   & $1, 0$ & $1,1$\\
+    \cmidrule{3-4}
   \end{tabular}
 \end{center}
 
@@ -306,10 +321,15 @@ Beispiel: 2 Spieler, 4 Strategien
   \begin{tabular}{cccccc}
     & & \multicolumn{4}{c}{B}\\
     & & $b_1$ & $b_2$ & $b_3$ & $b_4$\\
+    \cmidrule{3-6}
     \multirow{4}{*}{A} & $a_1$ & $0,7$ & $2,5$ & $7,0$ & $0,1$\\
+    \cmidrule{3-6}
     & $a_2$ & $5,2$ & $3,3$ & $5,2$ & $0,1$\\
+    \cmidrule{3-6}
     & $a_3$ & $7,0$ & $2,5$ & $0,7$ & $0,1$\\
+    \cmidrule{3-6}
     & $a_4$ & $0,0$ & $0,-2$ & $0,0$ & $10,-3$\\
+    \cmidrule{3-6}
   \end{tabular}
 \end{center}
 
@@ -320,10 +340,15 @@ $b_4$ eliminiert:
   \begin{tabular}{ccccc}
     & & \multicolumn{3}{c}{B}\\
     & & $b_1$ & $b_2$ & $b_3$\\
+    \cmidrule{3-5}
     \multirow{4}{*}{A} & $a_1$ & $0,7$ & $2,5$ & $7,0$\\
+    \cmidrule{3-5}
     & $a_2$ & $5,2$ & $3,3$ & $5,2$\\
+    \cmidrule{3-5}
     & $a_3$ & $7,0$ & $2,5$ & $0,7$\\
+    \cmidrule{3-5}
     & $a_4$ & $0,0$ & $0,-2$ & $0,0$\\
+    \cmidrule{3-5}
   \end{tabular}
 \end{center}
 
@@ -334,9 +359,13 @@ $a_4$ und damit wird $a_4$ eliminiert:
   \begin{tabular}{ccccc}
     & & \multicolumn{3}{c}{B}\\
     & & $b_1$ & $b_2$ & $b_3$\\
+    \cmidrule{3-5}
     \multirow{4}{*}{A} & $a_1$ & $0,7$ & $2,5$ & $7,0$\\
+    \cmidrule{3-5}
     & $a_2$ & $5,2$ & $3,3$ & $5,2$\\
+    \cmidrule{3-5}
     & $a_3$ & $7,0$ & $2,5$ & $0,7$\\
+    \cmidrule{3-5}
   \end{tabular}
 \end{center}
 

@@ -1,3 +1,405 @@
 \subsection{Serie 2}%
 \label{sub:serie_2}
 
+\paragraph{Aufgabe 1}%
+\label{par:serie_2_aufgabe_1}
+
+Paula und Anton planen gemeinsam eine WG in München zu gründen.
+Im Zuge der Planungen weist Paula darauf hin, dass sowohl sie als auch Anton ja vermutlich
+keine Lust hätten, regelmäßig die Küche sauber zu machen, obwohl sie beide gern eine
+saubere Küche hätten.
+Anton bejaht die Präferenzen, glaubt aber, dass sich das schon regeln werde.
+Was glauben Sie?
+
+\begin{enumerate}
+  \item Stellen Sie die Interaktion \textit{Küche putzen} als Normalformspiel dar und
+    beschreiben Sie die Annahmen, die Sie dabei treffen. (Vernachlässigen Sie bitte für
+    den Moment, dass sich das Problem jede Woche wiederholt.)
+
+  \item Bestimmen Sie alle dominanten Strategien.
+
+  \item Bestimmen Sie alle rationalisierbaren Strategien.
+
+  \item Bestimmen Sie alle Nash-Gleichgewichte (i.e., alle Strategien, die wechselseitig
+    beste Antworten darstellen) in reinen Strategien.
+\end{enumerate}
+
+\subparagraph{Lösung}%
+
+\begin{enumerate}
+  \item Es gibt zwei Spieler: \textit{Anton} und \textit{Paula}.
+    Jeder Spieler hat zwei Aktionen: \textit{putzen $(p)$}
+    und \textit{nicht putzen $(\neg p)$}.
+    Beide Spieler finden eine saubere Küche immer besser als eine schmutzige, d.\,h. es
+    ist immer besser, wenn irgendjemand putzt, als wenn niemand putzt.
+    Weiterhin finden beide Spieler \textit{nicht putzen} besser als \textit{putzen}.
+    Für die möglichen Strategienprofile
+    $(p,p), (p, \neg p), (\neg p, p), (\neg p, \neg p)$
+    ergeben sich für Anton folgende Bedingungen bzgl. der Auszahlungen:
+    \begin{align*}
+      u_A(p,p) & > u_A(\neg p, \neg p)\\
+      u_A(p,\neg p) & > u_A(\neg p, \neg p)\\
+      u_A(\neg p, p) & > u_A(\neg p, \neg p)
+        & \text{(Eine saubere Küche ist besser als eine schmutzige.)}\\
+      u_A(\neg p, p) & > u_A(p, p)\\
+      u_A(\neg p, p) & > u_A(p, \neg p)
+        & \text{(Eine saubere Küche ohne putzen zu müssen ist besser als alles andere.)}\\
+      u_A(p, p) & > u_A(p, \neg p)
+        & \text{(Gemeinsam putzen ist besser als ausgenutzt zu werden.)}
+    \end{align*}
+    Daraus ergibt sich folgende Rangordnung der Auszahlungen:
+    \begin{align*}
+      u_A(\neg p, p) > u_A(p, p) > u_A(p, \neg p) > u_A(\neg p, \neg p)
+      \intertext{bzw. in Zahlen:}
+      3 > 2 > 1 > 0
+    \end{align*}
+    Die Auszahlungen für Paula sind symmetrisch:
+    \begin{align*}
+      u_P(p, \neg p) > u_P(p, p) > u_P(\neg p, p) > u_P(\neg p, \neg p)
+    \end{align*}
+    Damit ergibt sich folgende Auszahlungsbimatrix:
+    \begin{center}
+      \begin{tabular}{cccc}
+        & & \multicolumn{2}{c}{Paula}\\
+        & & $p$ & $\neg p$\\
+        \cmidrule{3-4}
+        \multirow{2}{*}{Anton}
+        & $p$       & $2,2$ & $1,3$ \\
+        \cmidrule{3-4}
+        & $\neg p$  & $3,1$ & $0,0$\\
+        \cmidrule{3-4}
+      \end{tabular}
+    \end{center}
+
+  \item Es existieren keine dominanten Strategien.
+    Für beide Spieler ist $p$ nicht immer besser als $\neg p$
+    und andersherum ist $\neg p$ nicht immer besser als $p$.
+
+  \item Betrachten wir Antons Sicht: wenn Paula $\neg p$ spielt,
+    dann ist seine beste Antwort darauf $p$ zu spielen.
+    Wenn Paula $p$ spielt, dann ist seine beste Antwort darauf $\neg p$ zu spielen.
+    Aus Paulas Sicht ist die Argumentation gleich.
+    Damit sind $(p, \neg p)$ und $(\neg p, p)$ rationalisierbar.
+
+  \item $\text{NGG} = \{(p, \neg p), (\neg p, p)\}$
+\end{enumerate}
+
+\paragraph{Aufgabe 2}%
+\label{par:serie_2_aufgabe_2}
+
+Wenn Anton sich morgens in die Uni aufmacht, kann er sowohl mit der Tram fahren als auch
+zu Fuß gehen.
+Anton fährt am liebsten Tram, wenn er einen Sitzplatz bekommt, geht aber lieber zu Fuß,
+als in der vollen Tram zu stehen.
+Dasselbe gilt für Paula und Julia, die nebenan wohnt.
+Wie es der Zufall will scheinen aber jeden Morgen nur 2 Plätze in der Tram frei zu sein,
+wenn die 3 an der Haltestelle ankommen.
+
+\begin{enumerate}
+  \item Beschreiben Sie die Situation \textit{Weg in die Uni} an einem bestimmten Morgen
+    für Anton, Paula und Julia als Normalformspiel.
+
+  \item Bestimmen Sie alle Nash-Gleichgewichte in reinen Strategien.
+\end{enumerate}
+
+\subparagraph{Lösung}%
+
+\begin{enumerate}
+  \item Es gibt 3 Spieler: \textit{Anton}, \textit{Paula} und \textit{Julia}.
+    Jeder Spieler hat 2 mögliche Aktionen: \textit{Tram fahren $(T)$} und \textit{zu Fuß
+    gehen $(F)$}.
+    Die einzelnen gewählten Aktionen führen zu drei verschiedenen Zuständen für die
+    einzelnen Spieler:
+    \begin{itemize}
+      \item \textit{Gehen}, wenn der Spieler $F$ spielt
+      \item \textit{Stehen}, wenn alle Spieler $T$ spielen und die anderen Spieler die
+        Plätze besetzen
+      \item \textit{Sitzen}, wenn der Spieler $T$ spielt und mindestens ein anderer
+        Spieler $F$ spielt
+    \end{itemize}
+
+    Es gilt: \textit{Sitzen} ist besser als \textit{Gehen} ist besser als \textit{Stehen},
+    sodass für alle Spieler $i$ gilt:
+    \begin{align*}
+      u_i(\textit{Sitzen}) & > u_i(\textit{Gehen}) > u_i(\textit{Stehen})
+    \end{align*}
+    Daher seien folgende Auszahlungen für die Spieler definiert:
+    \begin{align*}
+      u_i(\textit{Sitzen}) & = 3\\
+      u_i(\textit{Gehen})  & = 2\\
+      u_i(\textit{Stehen}) & = 1
+    \end{align*}
+    Wenn alle drei Spieler $T$ spielen und nur zwei Plätze zur Verfügung stehen, dann
+    müssen nicht alle Spieler stehen, sondern zwei können sitzen und nur einer muss
+    stehen.
+    Für diesen Fall ergibt sich die Auszahlung aus dem Erwartungsnutzen:
+    \begin{align*}
+      EU_i\left[(T,T,T)\right] &
+        = \frac{2}{3} u_i(\textit{Sitzen}) + \frac{1}{3} u_i(\textit{Stehen})
+        = \frac{7}{3}
+    \end{align*}
+    Die Auszahlungen müsste man eigentlich als $2 \times 2 \times 2$ Würfel darstellen.
+    Der Übersichtlichkeit halber soll sie scheibenweise aufgeschrieben werden:
+
+    \begin{center}
+      \begin{tabular}{cccc}
+        Julia spielt $T$ & & \multicolumn{2}{c}{Paula}\\
+        & & $T$ & $F$\\
+        \cmidrule{3-4}
+        \multirow{2}{*}{Anton}
+        & $T$
+        & $\underline{\frac{7}{3}},\underline{\frac{7}{3}},\underline{\frac{7}{3}}$
+        & $\underline{3},2,\underline{3}$\\
+        \cmidrule{3-4}
+        & $F$ & $2,\underline{3},\underline{3}$ & $2,2,\underline{3}$\\
+        \cmidrule{3-4}
+      \end{tabular}
+      \qquad
+      \begin{tabular}{cccc}
+        Julia spielt $F$ & & \multicolumn{2}{c}{Paula}\\
+        & & $T$ & $F$\\
+        \cmidrule{3-4}
+        \multirow{2}{*}{Anton}
+        & $T$
+        & $\underline{3},\underline{3},2$
+        & $\underline{3},2,2$\\
+        \cmidrule{3-4}
+        & $F$ & $2,\underline{3},2$ & $2,2,2$\\
+        \cmidrule{3-4}
+      \end{tabular}
+    \end{center}
+
+  \item $\text{NGG} = \{(T,T,T)\}$
+\end{enumerate}
+
+\paragraph{Aufgabe 3}%
+\label{par:serie_2_aufgabe_3}
+
+Betrachten Sie folgendes Zwei-Personen-Spiel in strategischer Form.
+Spieler 1 wählt die Zeile (Top, Middle, oder Bottom) und Spieler 2 wählt gleichzeitig die
+Spalte (Left, Centre, oder Right).
+Jede Zelle in der Spielmatrix spezifiziert die Auszahlungen der betreffenden
+Strategiekombinationen, d.\,h. ein Ergebnis des Spieles.
+
+\begin{center}
+  \begin{tabular}{ccccc}
+    & & \multicolumn{3}{c}{Spieler 2}\\
+    & & Left & Centre & Right\\
+    \cmidrule{3-5}
+    \multirow{3}{*}{Spieler 1}
+    & Top & $7,2$ & $6,5$ & $3,3$\\
+    \cmidrule{3-5}
+    & Middle & $3,5$ & $3,3$ & $5,6$\\
+    \cmidrule{3-5}
+    & Bottom & $5,6$ & $2,6$ & $4,7$\\
+    \cmidrule{3-5}
+  \end{tabular}
+\end{center}
+
+\begin{enumerate}
+  \item Was bedeutet der Begriff \textit{dominierte Strategie} im Kontext dieses Spiels?
+    Gibt es dominierte Strategien in diesem Spiel?
+
+  \item Was bedeutet das Konzept \textit{Nash-Gleichgewicht (NGG)}?
+    Was sind die reinen NGGe dieses Spieles?
+\end{enumerate}
+
+\subparagraph{Lösung}%
+
+\begin{enumerate}
+  \item Für Spieler 2 sind die Auszahlungen von Left immer kleiner als die von Right, egal
+    was Spieler 1 spielt.
+    Daher ist Left eine von Right dominierte Strategie.
+    Sie ist sogar strikt dominiert, weil die Auszahlungen immer echt kleiner als die von
+    Right sind.
+
+  \item Ein Nash-Gleichgewicht ist eine Kombination von Strategien, wobei jeder Spieler
+    genau eine Strategie wählt, von der aus für keinen Spieler sinnvoll ist, von der
+    gewählten Strategie als einziger abzuweichen.
+
+    Mittels \textit{iterativer Elimination strikt dominierter Strategien} und der
+    Bestimmung der jeweils besten Antworten lassen sich die Nash-Gleichgewichte finden.
+
+    Da Left eine strikt dominierte Strategie ist, wird Spieler 2 sie niemals spielen,
+    sodass folgendes Spiel übrig bleibt:
+
+    \begin{center}
+      \begin{tabular}{cccc}
+        & & \multicolumn{2}{c}{Spieler 2}\\
+        & & Centre & Right\\
+        \cmidrule{3-4}
+        \multirow{3}{*}{Spieler 1}
+        & Top & $6,5$ & $3,3$\\
+        \cmidrule{3-4}
+        & Middle & $3,3$ & $5,6$\\
+        \cmidrule{3-4}
+        & Bottom & $2,6$ & $4,7$\\
+        \cmidrule{3-4}
+      \end{tabular}
+    \end{center}
+
+    In diesem reduzierten Spiel wird Bottom strikt von Middle dominiert, sodass Spieler 1
+    niemals Bottom spielen wird. Es bleibt:
+
+    \begin{center}
+      \begin{tabular}{cccc}
+        & & \multicolumn{2}{c}{Spieler 2}\\
+        & & Centre & Right\\
+        \cmidrule{3-4}
+        \multirow{3}{*}{Spieler 1}
+        & Top & $6,5$ & $3,3$\\
+        \cmidrule{3-4}
+        & Middle & $3,3$ & $5,6$\\
+        \cmidrule{3-4}
+      \end{tabular}
+    \end{center}
+
+    Für die Nash-Gleichgewichte werden die jeweils besten Antworten bestimmt:
+    \begin{align*}
+      BA_1(\text{Centre}) & = \text{Top}\\
+      BA_1(\text{Right}) & = \text{Middle}\\
+      BA_2(\text{Top}) & = \text{Centre}\\
+      BA_2(\text{Middle}) & = \text{Right}
+    \end{align*}
+    Damit ist $\text{NGG} = \{(\text{Top, Centre}), (\text{Middle, Right})\}$
+\end{enumerate}
+
+\paragraph{Aufgabe 4}%
+\label{par:serie_2_aufgabe_4}
+
+Zwei Spieler haben, wie im Gefangenendilemma, die beiden möglichen Aktionen $C$ und $D$.
+Die folgende Matrix beschreibt die \textit{Geldbeträge}, welche die Spieler bei der Wahl
+des entsprechenden Aktionenprofils erhalten.
+
+\begin{center}
+  \begin{tabular}{ccc}
+    & $C$ & $D$\\
+    \cmidrule{2-3}
+    $C$ & $2,2$ & $0,3$\\
+    \cmidrule{2-3}
+    $D$ & $3,0$ & $1,1$\\
+    \cmidrule{2-3}
+  \end{tabular}
+\end{center}
+
+Die Spieler sind jedoch nicht (unbedingt) egoistisch; ihre Präferenzen hängen auch von dem
+Geldbetrag ab, den der Mitspieler erhält.
+So sind die Präferenzen von Spieler $i$ durch eine Nutzenfunktion der Form
+\begin{align*}
+  m_i + \alpha m_j, \quad \alpha \geq 0
+\end{align*}
+beschrieben, wobei $m_i$ der Geldbetrag ist, den Spieler $i$ erhält, und $m_j$ der
+Geldbetrag ist, den der Mitspieler $j \neq i$ erhält.
+Für welche Werte von $\alpha$ hat das resultierende Spiel die gleiche Auszahlungsstruktur
+wie das Gefangenendilemma?
+Bestimmen Sie die Nash-Gleichgewichte des Spieles für die Werte von $\alpha$, für die
+dieses nicht der Fall ist.
+
+\subparagraph{Lösung}%
+Siehe~\ref{sub:gefangendilemma}.
+Ohne die besondere Nutzenfunktion haben die Erträge folgende Werte:
+\begin{align*}
+  T = 3 \quad R = 2 \quad P = 1 \quad S = 0
+\end{align*}
+Damit das Spiel ein Gefangenendilemma wird, muss $T > R > P > S$ gelten.
+Durch die Nutzenfunktion ergibt sich folgende Bimatrix der Auszahlungen:
+\begin{center}
+  \begin{tabular}{ccc}
+    & $C$ & $D$\\
+    \cmidrule{2-3}
+    $C$ & $2+2\alpha,2+2\alpha$ & $3\alpha,3$\\
+    \cmidrule{2-3}
+    $D$ & $3,3\alpha$ & $1+\alpha,1+\alpha$\\
+    \cmidrule{2-3}
+  \end{tabular}
+\end{center}
+Damit dieses Spiel ein Gefangenendilemma ist, muss bspw.
+$T = 3 > 2+2\alpha = R \iff \alpha < \frac{1}{2}$
+gelten.
+Die restlichen Ungleichungen werden dadurch ebenfalls erfüllt.
+
+Für $\alpha \geq \frac{1}{2}$ ist das Spiel kein Gefangenendilemma.
+Die Nash-Gleichgewichte unterscheiden sich je nach Wert von $\alpha$.
+\begin{description}
+  \item[Fall $\alpha = \frac{1}{2}$:] Das Spiel besitzt folgende Auszahlungen:
+    \begin{center}
+      \begin{tabular}{ccc}
+        & $C$ & $D$\\
+        \cmidrule{2-3}
+        $C$ & $3, 3$ & $\frac{3}{2},3$\\
+        \cmidrule{2-3}
+        $D$ & $3,\frac{3}{2}$ & $\frac{3}{2},\frac{3}{2}$\\
+        \cmidrule{2-3}
+      \end{tabular}
+    \end{center}
+    In diesem Spiel sind alle Strategiekombinationen Nash-Gleichgewichte:
+    \begin{align*}
+      \text{NGG} & = \{(C,C), (C,D), (D,C), (D,D)\}
+    \end{align*}
+
+  \item[Fall $\alpha > \frac{1}{2}$:] In diesem Fall lässt sich $\alpha$ darstellen als
+    $\alpha = \frac{1}{2} + \beta$ mit $\beta > 0$.
+    Das resultierende Spiel besitzt folgende Auszahlungen:
+    \begin{center}
+      \begin{tabular}{ccc}
+        & $C$ & $D$\\
+        \cmidrule{2-3}
+        $C$ & $\underline{3+2\beta}, \underline{3+2\beta}$
+            & $\underline{\frac{3}{2}+3\beta}, 3$\\
+        \cmidrule{2-3}
+        $D$ & $3, \underline{\frac{3}{2}+3\beta}$
+            & $\frac{3}{2}+\beta, \frac{3}{2}+\beta$\\
+        \cmidrule{2-3}
+      \end{tabular}
+    \end{center}
+    Die jeweils besten Antworten sind unterstrichen, sodass $\text{NGG} = \{(C,C)\}$ gilt.
+    Weiterhin wird $D$ von $C$ in diesem Spiel strikt dominiert.
+\end{description}
+
+\paragraph{Aufgabe 5}%
+\label{par:serie_2_aufgabe_5}
+
+Zwei Tiere kämpfen um eine Beute.
+Jedes der Tiere kann entweder passiv oder aggressiv sein.
+Jedes Tier zieht es vor aggressiv zu sein, wenn der Gegner passiv ist, und passiv zu sein,
+wenn der Gegner aggressiv ist.
+Gegeben das eigene Verhalten zieht es jedes Tier vor, wenn der Gegner passiv ist.
+Finden Sie eine geeignete Auszahlungsfunktion, welche diese Präferenzen abbildet und
+bestimmen Sie die Nash-Gleichgewichte des resultierenden Spiels.
+
+\subparagraph{Lösung}%
+
+Da beide Tiere das gleiche Verhalten zeigen, sind die Auszahlungsmatrizen symmetrisch und
+wir können die Auszahlungen wie folgt bezeichnen:
+\begin{center}
+  \begin{tabular}{ccc}
+    & $a$ & $p$\\
+    \cmidrule{2-3}
+    $a$ & $x,x$ & $z,y$\\
+    \cmidrule{2-3}
+    $p$ & $y,z$ & $w,w$\\
+    \cmidrule{2-3}
+  \end{tabular}
+\end{center}
+Für die Auszahlungen gelten folgende Bedingungen:
+\begin{align*}
+  z & > w & \text{(Wenn der Gegner passiv ist, dann ist aggressiv sein besser.)}\\
+  y & > x & \text{(Wenn der Gegner aggressiv ist, dann ist passiv sein besser.)}\\
+  z & > x & \text{(Gegeben das eigene Verhalten,}\\
+  w & > y & \text{wird passives Verhalten vom Gegner bevorzugt.)}
+\end{align*}
+Dies führt zu $z > w > y > x$, sodass z.\,B. $z = 3, w = 2, y = 1$ und $x=0$ die
+Bedingungen erfüllen.
+
+Im folgenden Spiel sind die besten Antworten unterstrichen:
+\begin{center}
+  \begin{tabular}{ccc}
+    & $a$ & $p$\\
+    \cmidrule{2-3}
+    $a$ & $0,0$ & $\underline{3},\underline{1}$\\
+    \cmidrule{2-3}
+    $p$ & $\underline{1},\underline{3}$ & $2,2$\\
+    \cmidrule{2-3}
+  \end{tabular}
+\end{center}
+Die Nash-Gleichgewichte sind somit $\text{NGG} = \{(a,p), (p,a)\}$.

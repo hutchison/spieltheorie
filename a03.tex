@@ -2,7 +2,7 @@
 \label{sub:serie_3}
 
 \paragraph{Aufgabe 1}%
-\label{par:aufgabe_1}
+\label{par:serie_3_aufgabe_1}
 
 \begin{enumerate}
   \item Bestimmen Sie alle Nash-GG (in reinen Strategien) des folgenden Spiels in
@@ -41,4 +41,278 @@
         \cmidrule{2-3}
       \end{tabular}
     \end{center}
+\end{enumerate}
+
+\subparagraph{Lösung}%
+
+\begin{enumerate}
+  \item Die jeweils besten Antworten lauten:
+    \begin{center}
+      \begin{tabular}{ccc}
+        & $B$ & $S$\\
+        \cmidrule{2-3}
+        $B$ & $\underline{2},\underline{1}$ & $0,0$\\
+        \cmidrule{2-3}
+        $S$ & $\underline{2},0$ & $\underline{1},\underline{2}$\\
+        \cmidrule{2-3}
+      \end{tabular}
+    \end{center}
+    Somit gilt $\text{NGG} = \{(B,B), (S,S)\}$.
+
+  \item Unabhängig von $x$ sind folgende unterstrichenen Auszahlungen jeweils beste
+    Antworten der Spieler:
+    \begin{center}
+      \begin{tabular}{ccc}
+        & $A$ & $B$\\
+        \cmidrule{2-3}
+        $U$ & $x,\underline{2}$ & $2,0$\\
+        \cmidrule{2-3}
+        $D$ & $2,1$ & $\underline{4},\underline{2}$\\
+        \cmidrule{2-3}
+      \end{tabular}
+    \end{center}
+    Damit ist $(D,B)$ immer ein Element des NGG.
+
+    Für die vollständige Bestimmung der Nash-Gleichgewichte bedarf es einer
+    Fallunterscheidung von $x$ im Vergleich zur alternativen Auszahlung von $2$ für
+    $(D,A)$.
+
+    \begin{description}
+      \item[$x<2$:] Die besten Antworten lauten:
+        \begin{center}
+          \begin{tabular}{ccc}
+            & $A$ & $B$\\
+            \cmidrule{2-3}
+            $U$ & $x,\underline{2}$ & $2,0$\\
+            \cmidrule{2-3}
+            $D$ & $\underline{2},1$ & $\underline{4},\underline{2}$\\
+            \cmidrule{2-3}
+          \end{tabular}
+        \end{center}
+        Damit gilt: $\text{NGG} = \{(D,B)\}$.
+
+      \item[$x=2$:] Die besten Antworten lauten:
+        \begin{center}
+          \begin{tabular}{ccc}
+            & $A$ & $B$\\
+            \cmidrule{2-3}
+            $U$ & $\underline{x},\underline{2}$ & $2,0$\\
+            \cmidrule{2-3}
+            $D$ & $\underline{2},1$ & $\underline{4},\underline{2}$\\
+            \cmidrule{2-3}
+          \end{tabular}
+        \end{center}
+        Damit gilt: $\text{NGG} = \{(U, A), (D,B)\}$.
+
+      \item[$x>2$:] Die besten Antworten lauten:
+        \begin{center}
+          \begin{tabular}{ccc}
+            & $A$ & $B$\\
+            \cmidrule{2-3}
+            $U$ & $\underline{x},\underline{2}$ & $2,0$\\
+            \cmidrule{2-3}
+            $D$ & $2,1$ & $\underline{4},\underline{2}$\\
+            \cmidrule{2-3}
+          \end{tabular}
+        \end{center}
+        Damit gilt wie im Fall $x=2$: $\text{NGG} = \{(U, A), (D,B)\}$.
+    \end{description}
+
+  \item Die jeweils besten Antworten lauten:
+    \begin{center}
+      \begin{tabular}{ccc}
+        & $L$ & $R$\\
+        \cmidrule{2-3}
+        $L$ & $-1, \phantom{-}\underline{1}$ & $\phantom{-}\underline{1}, -1$\\
+        \cmidrule{2-3}
+        $R$ & $\phantom{-}\underline{1}, -1$ & $-1, \phantom{-}\underline{1}$\\
+        \cmidrule{2-3}
+      \end{tabular}
+    \end{center}
+
+    Damit ist keine Strategiekombination Teil des Nash-Gleichgewichts und es gilt
+    $\text{NGG} = \emptyset$.
+\end{enumerate}
+
+\paragraph{Aufgabe 2}%
+\label{par:serie_3_aufgabe_2}
+
+Bestimmen Sie für folgendes Spiel in Normalform alle Nash-Gleichgewichte in reinen
+Strategien:
+
+\begin{center}
+  \begin{tabular}{ccccc}
+    & & \multicolumn{3}{c}{Spieler 2}\\
+    & & $L$ & $C$ & $R$\\
+    \cmidrule{3-5}
+    \multirow{3}{*}{Spieler 1}
+    & $T$ & $0,1$ & $9,0$ & $2,3$\\
+    \cmidrule{3-5}
+    & $M$ & $5,9$ & $7,3$ & $1,7$\\
+    \cmidrule{3-5}
+    & $B$ & $7,5$ & $10,10$ & $3,5$\\
+    \cmidrule{3-5}
+  \end{tabular}
+\end{center}
+
+\subparagraph{Lösung}%
+
+Für Spieler 1 dominiert $B$ die anderen beiden Strategien, sodass $T$ und $M$ eliminiert
+werden können und das folgende reduzierte Spiel entsteht:
+\begin{center}
+  \begin{tabular}{ccccc}
+    & & \multicolumn{3}{c}{Spieler 2}\\
+    & & $L$ & $C$ & $R$\\
+    \cmidrule{3-5}
+    Spieler 1 & $B$ & $7,5$ & $10,10$ & $3,5$\\
+    \cmidrule{3-5}
+  \end{tabular}
+\end{center}
+
+Die beste Antwort auf $B$ von Spieler 2 ist $C$, sodass $\text{NGG} = \{(B,C)\}$ das
+einzige Nash-Gleichgewicht ist.
+
+\paragraph{Aufgabe 3}%
+\label{par:serie_3_aufgabe_3}
+
+Geben Sie jeweils ein Beispiel für die Auszahlungsmatrix eines Zwei-Personen-Spiels in
+strategischer Form an, in dem jeder Spieler nur zwei reine Strategien besitzt, um zu
+belegen, dass folgende Aussagen für solche Spiele \emph{falsch} sind.
+
+\begin{enumerate}
+  \item Gibt es nur ein Nash-GG in reinen Strategien, so verwenden in diesem Spiel beide
+    Spieler eine dominante Strategie.
+  \item Ist ein Spiel symmetrisch, so besitzt es ein symmetrisches Nash-GG in reinen
+    Strategien.
+\end{enumerate}
+
+\subparagraph{Lösung}%
+
+\begin{enumerate}
+  \item Betrachte folgendes Spiel:
+    \begin{center}
+      \begin{tabular}{ccc}
+        & $A$ & $B$\\
+        \cmidrule{2-3}
+        $C$ & $3,3$ & $2,2$\\
+        \cmidrule{2-3}
+        $D$ & $1,2$ & $3,1$\\
+        \cmidrule{2-3}
+      \end{tabular}
+    \end{center}
+    Es gilt $\text{NGG} = \{(C,A)\}$, aber nur $A$ ist eine dominante Strategie.
+
+  \item Die Auszahlungsbimatrix eines symmetrischen Spiels besitzt folgende Form:
+    \begin{center}
+      \begin{tabular}{ccc}
+        & $A$ & $B$\\
+        \cmidrule{2-3}
+        $A$ & $a,a$ & $b,c$\\
+        \cmidrule{2-3}
+        $B$ & $c,b$ & $d,d$\\
+        \cmidrule{2-3}
+      \end{tabular}
+    \end{center}
+    Für $a=d=0$ und $b=c=1$ gilt $\text{NGG} = \{(A,B), (B,A)\}$, welches nicht
+    symmetrisch ist.
+\end{enumerate}
+
+\paragraph{Aufgabe 4}%
+\label{par:serie_3_aufgabe_4}
+
+Bei einer Wahl gibt es zwei Kandidaten, $A$ und $B$.
+Es gibt $n \geq 2$ Wahlberechtigte, von denen $k \geq 1$ Kandidaten $A$ vorziehen
+und $m = n-k \geq 1$ Kandidaten $B$ vorziehen.
+Jeder Wahlberechtigte muss entscheiden, ob er an der Wahl teilnimmt (in diesem Falle sei
+unterstellt, dass er für seinen favorisierten Kandidaten stimmt) oder nicht.
+Ein Wahlberechtigter, der nicht an der Wahl teilnimmt,
+erhält eine Auszahlung von $2$, falls sein favorisierter Kandidat gewinnt;
+eine Auszahlung von $1$, falls beide Kandidaten gleich viele Stimmen erhalten,
+und eine Auszahlung von $0$, falls sein favorisierter Kandidat verliert.
+Nimmt der Wahlberechtigte an der Wahl teil, sind die Auszahlungen entsprechend, jedoch
+werden Teilnahmekosten in der Höhe von $c \in (0,1)$ von allen Auszahlungen abgezogen.
+\begin{enumerate}
+  \item Sei $k=m=1$. Bestimmen Sie alle Nash-GG in reinen Strategien.
+  \item Sie $k=m>1$. Bestimmen Sie alle Nash-GG in reinen Strategien.
+  \item Sei $k<m$. Welche Nash-GG in reinen Strategien gibt es?
+\end{enumerate}
+
+\subparagraph{Lösung}%
+
+\begin{enumerate}
+  \item Jeder Spieler hat die folgenden Aktionen:
+    $w$ (an der Wahl teilnehmen) und $\neg w$ (nicht an der Wahl teilnehmen).
+
+    Die Auszahlungen mit den jeweils besten Antworten lauten wie folgt:
+    \begin{center}
+      \begin{tabular}{ccc}
+        & $w$ & $\neg w$\\
+        \cmidrule{2-3}
+        $w$ & $\underline{1-c},\underline{1-c}$ & $\underline{2-c},0$\\
+        \cmidrule{2-3}
+        $\neg w$ & $0,\underline{2-c}$ & $1,1$\\
+        \cmidrule{2-3}
+      \end{tabular}
+    \end{center}
+    Damit gilt $\text{NGG} = \{(w,w)\}$.
+
+  \item Wir betrachten verschiedene Situationen und entscheiden, ob sie ein
+    Nash-Gleichgewicht sind oder nicht.
+    Sei $n_A$ die Anzahl der Wahlberechtigten, die für $A$ an der Wahl teilnehmen und
+    $n_B$ entsprechend für $B$.
+
+    \begin{description}
+      \item[$n_A = n_B = k$:] In diesem Fall wählen alle Wahlberechtigten.
+        Falls ein Wahlberechtigter sich entscheiden würde doch nicht an der Wahl
+        teilzunehmen, dann würde der Kandidat die Wahl verlieren und die eigene Auszahlung
+        würde sich verringern.
+        Daher hat kein Wahlberechtigter einen Anreiz vom Verhalten abzuweichen und die
+        Situation ist ein Nash-Gleichgewicht.
+
+      \item[$n_A = n_B < k$:] In diesem Fall ist die Wahl ein Gleichstand, aber nicht alle
+        Wahlberechtigten nehmen an der Wahl teil.
+        Damit hätte jedoch irgendein nichtwählender Wahlberechtigter einen Anreiz doch an
+        der Wahl teilzunehmen und die eigene Auszahlung von $1$ auf $2-c$ zu verbessern.
+        Daher ist diese Situation kein Nash-Gleichgewicht.
+
+      \item[$n_A = n_B + 1$:] In diesem Fall gewinnt ein Kandidat die Wahl mit einer
+        Stimme Vorsprung (analog $n_B = n_A + 1$).
+        Dadurch hat ein Wahlberechtiger den Anreiz die Wahl zum Gleichstand zu führen und
+        die eigene Auszahlung von $0$ auf $1-c$ zu verbessern.
+        Daher ist diese Situation kein Nash-Gleichgewicht.
+
+      \item[$n_A \geq n_B + 2$:] In diesem Fall gewinnt ein Kandidat die Wahl mit mehr als
+        einer Stimme Vorsprung (analog $n_B \geq n_A+2$).
+        Dadurch hat ein für den Gewinner wählender Wahlberechtigter den Anreiz nicht an
+        der Wahl teilzunehmen und die eigene Auszahlung von $1-c$ auf $2-c$ zu verbessern.
+        Daher ist diese Situation kein Nash-Gleichgewicht.
+    \end{description}
+    Damit ist das einzige Nash-Gleichgewicht \emph{alle wählen}.
+
+  \item Analog zur vorherigen Teilaufgabe betrachten wir verschiedene Situationen und
+    unterscheiden, ob sie Nash-Gleichgewichte sind.
+    Sei wieder $n_A$ die Anzahl der Wahlberechtigten, die für $A$ an der Wahl teilnehmen
+    und $n_B$ entsprechend für $B$.
+
+    \begin{description}
+      \item[$n_A = n_B \leq k$:] In diesem Fall haben alle Wahlberechtigten für $A$ an der
+        Wahl teilgenommen und es herrscht Gleichstand.
+        Dann hätte ein nichtwählender Wahlberechtigter für $B$ den Anreiz doch an der Wahl
+        teilzunehmen und die Auszahlung von $1$ auf $2-c$ zu verbessern.
+        Daher ist diese Situation kein Nash-Gleichgewicht.
+
+      \item[$n_A = n_B + 1$:] In diesem Fall gewinnt ein Kandidat die Wahl mit einer
+        Stimme Vorsprung (analog $n_B = n_A + 1$).
+        Dadurch hat ein Wahlberechtiger den Anreiz die Wahl zum Gleichstand zu führen und
+        die eigene Auszahlung von $0$ auf $1-c$ zu verbessern.
+        Daher ist diese Situation kein Nash-Gleichgewicht.
+
+      \item[$n_A \geq n_B + 2$:] In diesem Fall gewinnt ein Kandidat die Wahl mit mehr als
+        einer Stimme Vorsprung (analog $n_B \geq n_A+2$).
+        Dadurch hat ein für den Gewinner wählender Wahlberechtigter den Anreiz nicht an
+        der Wahl teilzunehmen und die eigene Auszahlung von $1-c$ auf $2-c$ zu verbessern.
+        Daher ist diese Situation kein Nash-Gleichgewicht.
+    \end{description}
+
+    Damit existieren keine Nash-Gleichgewichte für den Fall $k<m$.
 \end{enumerate}

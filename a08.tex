@@ -1,0 +1,153 @@
+\subsection{Serie 8}%
+\label{sub:serie_8}
+
+\paragraph{Aufgabe 1}%
+\label{par:serie_8_aufgabe_1}
+
+Spieler 1 und 2 wechseln sich in einem Spiel mit vollkommener Information darin ab
+(beginnend mit Spieler 1), Steine von einem Haufen wegzunehmen.
+Zu Beginn des Spiels sind $n > 0$ Steine auf dem Haufen.
+Ein Spieler, der am Zug ist, kann einen oder zwei Steine wegnehmen.
+Das Spiel endet, wenn kein Stein mehr auf dem Haufen liegt.
+Der Spieler, der den letzten Stein wegnimmt, ist der Gewinner.
+Die Auszahlung des Gewinners ist 1; die des Verlierers ist 0.
+Für $n = 1$ und $n = 2$ gewinnt (in einem teilspielperfekten Gleichgewicht) offenkundig
+Spieler 1 dieses Spiel.
+
+\begin{enumerate}
+  \item Wer gewinnt für $n = 3$? Wer für $n = 4$?
+  \item Können Sie den Gewinner für beliebiges $n$ bestimmen?
+\end{enumerate}
+
+\subparagraph{Lösung}%
+
+\begin{enumerate}
+  \item Für $n=3$:
+    \begin{center}
+      \begin{tikzpicture}[
+          level/.style={sibling distance=60mm/#1},
+        ]
+        \node {$1_{\color{mygray}{3}}$}
+          child {
+            node {$2_{\color{mygray}{2}}$}
+            child {
+              node {$1_{\color{mygray}{1}}$}
+              child {
+                node {$1,0$}
+              }
+              edge from parent node [above left] {1}
+            }
+            child [very thick] {
+              node {$0, 1$}
+              edge from parent node [above right] {2}
+            }
+            edge from parent node [above left] {1}
+          }
+          child {
+            node {$2_{\color{mygray}{1}}$}
+            child [very thick] {
+              node {$0,1$}
+              edge from parent node [right] {1}
+            }
+            edge from parent node [above right] {2}
+          }
+        ;
+      \end{tikzpicture}
+    \end{center}
+    Bei $n=3$ gewinnt immer Spieler 2.
+
+    Für $n=4$:
+    \begin{center}
+      \begin{tikzpicture}[
+          level/.style={sibling distance=60mm/#1},
+        ]
+        \node {$1_{\color{mygray}{4}}$}
+          child {
+            node {$2_{\color{mygray}{3}}$}
+            child {
+              node {$1_{\color{mygray}{2}}$}
+              child [very thick] {
+                node {$1,0$}
+              }
+              edge from parent node [above left] {1}
+            }
+            child {
+              node {$1_{\color{mygray}{1}}$}
+              child {
+                node {$1,0$}
+                edge from parent node [right] {1}
+              }
+              edge from parent node [above right] {2}
+            }
+            edge from parent node [above left] {1}
+          }
+          child {
+            node {$2_{\color{mygray}{2}}$}
+            child [very thick] {
+              node {$0,1$}
+            }
+            edge from parent node [above right] {2}
+          }
+        ;
+      \end{tikzpicture}
+    \end{center}
+    Bei $n=4$ gewinnt immer Spieler 1 mit der Strategie 11 bzw. 12.
+
+\end{enumerate}
+
+
+\paragraph{Aufgabe 2}%
+\label{par:serie_8_aufgabe_2}
+
+In einem Spiel mit vollkommener Information gibt es drei Felder: $A, B$ und $C$.
+Spieler 1 beginnt das Spiel, indem er auf die Felder positive Geldbeträge
+$(x_A, x_B, x_C)$ legt.
+Danach ist Spieler 2 am Zug und kann positive Geldbeträge $(y_A, y_B, y_C)$ auf die Felder
+legen.
+Damit endet das Spiel.
+Der Gewinner ist der Spieler, der die meisten Felder gewinnt.
+Spieler 1 gewinnt das Feld $f \in \{A,B,C\}$, wenn $x_f > y_f$ gilt;
+ansonsten gewinnt Spieler 2 das Feld.
+Gewinnt Spieler $i$, erhält er einen Preis in Höhe von $V_i > 0$.
+Jeder Spieler muss die Summe seiner Gebote bezahlen.
+Wenn Spieler 1 gewinnt, ist seine Auszahlung also
+\begin{align*}
+  V_1 - x_A - x_B - x_C,
+\end{align*}
+wenn er verliert, ist sie
+\begin{align*}
+  - x_A - x_B - x_C,
+\end{align*}
+Die Auszahlungen von Spieler 2 sind entsprechend.
+
+\begin{enumerate}
+  \item Bestimmen Sie das (jeweils eindeutig bestimmte) Ergebnis der teilspielperfekten
+    Gleichgewichte für den Fall $V_1 = V_2 = 300$.
+    (Hinweis: eine vollständige Bestimmung der Gleichgewichtsstrategien ist hierfür nicht
+    erforderlich; Sie dürfen in der Bearbeitung unterstellen, dass es teilspielperfekte
+    Gleichgewichte gibt.)
+  \item Wiederholen Sie die Aufgabe für den Fall $V_1 = 300, V_2 = 100$.
+\end{enumerate}
+
+\paragraph{Aufgabe 3}%
+\label{par:serie_8_aufgabe_3}
+
+Betrachten Sie das folgende Verhandlungsspiel.
+In Runde 1 macht Spieler 1 ein Angebot $x \in [0, 1]$; daraufhin entscheidet Spieler 2, ob
+er das Angebot annimmt oder ablehnt.
+Wenn er ablehnt, dann beginnt Runde 2 und Spieler 2 macht ein Angebot, welches Spieler 1
+entweder annimmt oder ablehnt.
+Einigen sich die Spieler in Runde $t$ auf ein Angebot $x_t$, erhalten sie die Payoffs
+\begin{align*}
+  (\alpha^t x_t, \beta^t (1-x_t)) \text{ mit $\alpha, \beta \in (0,1)$.}
+\end{align*}
+Das Spiel endet in Periode $T=3$, wenn das Angebot nicht angenommen wird, mit einer
+Auszahlung von $(0,0)$.
+
+\begin{enumerate}
+  \item Bestimmen Sie das SPNE.
+  \item Welche Auszahlungen erhalten die Spieler?
+  \item Berechnen Sie die Auszahlungen für
+    $(\alpha, \beta) = (0.8, 0.9)$ und
+    $(\alpha, \beta) = (0.9, 0.8)$.
+\end{enumerate}

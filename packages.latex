@@ -313,6 +313,7 @@
 
 \newcommand{\BigO}{\mathcal{O}}
 \newcommand{\RealNumbers}{\mathbb{R}}
+\newcommand{\NaturalNumbers}{\mathbb{N}}
 \newcommand{\atleastasgood}{\succsim}
 \newcommand{\notatleastasgood}{\nsuccsim}
 \newcommand{\strictlypreferredto}{\succ}
@@ -327,3 +328,7 @@
 
 \newcommand{\happenedbefore}{\rightarrow}
 \newcommand{\causallyindependent}{\parallel}
+
+\newcommand*\circled[1]{%
+  \tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}
+}

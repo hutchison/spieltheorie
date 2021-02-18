@@ -111,3 +111,64 @@ Betrachten Sie folgendes Spiel:
     Damit ist $\text{SPNE} = \{(AR, r), (BR,r)\}$.
 \end{enumerate}
 
+\paragraph{Aufgabe 3}%
+\label{par:serie_9_aufgabe_3}
+
+Betrachten Sie folgendes Spiel mit $x \leq 2$:
+\begin{center}
+  \begin{tikzpicture}
+    \fill (0,0) circle (2pt) node [above left] {1};
+
+    \fill (-3,-2) circle (2pt) node [below] {$2,2$};
+    \fill (0,-2) circle (2pt);
+    \fill (3,-2) circle (2pt);
+
+    \fill (-1,-4) circle (2pt) node [below] {$3,3$};
+    \fill (1,-4) circle (2pt) node [below] {$x,0$};
+    \fill (2,-4) circle (2pt) node [below] {$0,0$};
+    \fill (4,-4) circle (2pt) node [below] {$1,1$};
+
+    \draw (0,0) -- (-3,-2) node [midway, above left] {$T$};
+    \draw (0,0) -- (0,-2) node [midway, right] {$M$};
+    \draw (0,0) -- (3,-2) node [midway, above right] {$B$};
+
+    \draw (0,-2) -- (-1,-4) node [midway, above left] {$L$};
+    \draw (0,-2) -- (1,-4) node [midway, above right] {$R$};
+    \draw (3,-2) -- (2,-4) node [midway, above left] {$L$};
+    \draw (3,-2) -- (4,-4) node [midway, above right] {$R$};
+
+    \draw [dashed] (0,-2) -- (3,-2) node [midway, below] {2};
+  \end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+  \item Aus wie vielen Teilspielen besteht das Extensivformspiel?
+  \item Welche sind die Strategiemengen der beiden Spieler?
+  \item Bestimmen Sie die Nash-Gleichgewichte in reinen Strategien.
+  \item Bestimmen Sie die sequentiellen Nash-Gleichgewichte.
+  \item Sind diese Gleichgewichte stabil?
+\end{enumerate}
+
+\subparagraph{Lösung}%
+
+\begin{enumerate}
+  \item Aus einem, da bei Teilspielen keine nachfolgenden Informationsbezirke getrennt
+    werden dürfen.
+  \item Spieler 1: $\{T, M, B\}$, Spieler 2: $\{L, R\}$
+  \item Aus der Normalform ergibt sich:
+    \begin{center}
+      \begin{tabular}{cccc}
+        & & \multicolumn{2}{c}{Spieler 2}\\
+        & & $L$ & $R$\\
+        \cmidrule{3-4}
+        \multirow{3}{*}{Spieler 1}
+        & $T$ & $2,\underline{2}$ & $\underline{2},\underline{2}$\\
+        \cmidrule{3-4}
+        & $M$ & $\underline{3},\underline{3}$ & $\underline{x},0$\\
+        \cmidrule{3-4}
+        & $B$ & $0,0$ & $1,\underline{1}$\\
+        \cmidrule{3-4}
+      \end{tabular}
+    \end{center}
+    Daher gilt $\text{NGG} = \{(M,L), (T,R)\}$.
+\end{enumerate}
